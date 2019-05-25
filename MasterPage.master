@@ -1,0 +1,184 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head id="Head1" runat="server">
+    <title>TV5 Employee Details</title>
+<link rel="stylesheet" type="text/css" href="css/default.css"/>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Intl.~locale.en"></script>
+<script type="text/javascript" src="Script/ddaccordion.js">
+
+/***********************************************
+* Accordion Content script- (c) Dynamic Drive DHTML code library (www.dynamicdrive.com)
+* Visit http://www.dynamicDrive.com for hundreds of DHTML scripts
+* Please keep this notice intact
+***********************************************/
+
+</script>
+
+
+<script type="text/javascript">
+
+
+ddaccordion.init({
+	headerclass: "submenuheader", //Shared CSS class name of headers group
+	contentclass: "submenu", //Shared CSS class name of contents group
+	revealtype: "click", //Reveal content when user clicks or onmouseover the header? Valid value: "click", "clickgo", or "mouseover"
+	mouseoverdelay: 200, //if revealtype="mouseover", set delay in milliseconds before header expands onMouseover
+	collapseprev: true, //Collapse previous content (so only one open at any time)? true/false 
+	defaultexpanded: [], //index of content(s) open by default [index1, index2, etc] [] denotes no content
+	onemustopen: false, //Specify whether at least one header should be open always (so never all headers closed)
+	animatedefault: false, //Should contents open by default be animated into view?
+	persiststate: true, //persist state of opened contents within browser session?
+	toggleclass: ["", ""], //Two CSS classes to be applied to the header when it's collapsed and expanded, respectively ["class1", "class2"]
+	togglehtml: ["suffix", "<img src='plus.gif' class='statusicon' />", "<img src='minus.gif' class='statusicon' />"], //Additional HTML added to the header when it's collapsed and expanded, respectively  ["position", "html1", "html2"] (see docs)
+	animatespeed: "fast", //speed of animation: integer in milliseconds (ie: 200), or keywords "fast", "normal", or "slow"
+	oninit:function(headers, expandedindices){ //custom code to run when headers have initalized
+		//do nothing
+	},
+	onopenclose:function(header, index, state, isuseractivated){ //custom code to run whenever a header is opened or closed
+		//do nothing
+	}
+})
+
+</script>
+
+
+<style type="text/css">
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    border-top-right-radius: 10px;
+    border-top-left-radius:10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius:10px;
+
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #111;
+}
+
+
+.prof_table {
+  width: 100%;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 0.5em;
+}
+
+.prof_table td {
+  vertical-align: top;
+  padding: 10px 10px 10px 10px;
+}
+
+h1 { 
+    display: block;
+    font-size: 2em;
+    margin-top: 0.67em;
+    margin-bottom: 0.67em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}
+
+.mGrid { 
+    width: 100%; 
+    background-color: #fff; 
+    margin: 5px 0 10px 0; 
+    border: solid 1px #525252; 
+    border-collapse:collapse; 
+}
+.mGrid td { 
+    padding: 2px; 
+    border: solid 1px #c1c1c1; 
+    color: #717171; 
+}
+.mGrid th { 
+    padding: 4px 2px; 
+    color: #fff; 
+    background: #424242 url(grd_head.png) repeat-x top; 
+    border-left: solid 1px #525252; 
+    font-size: 0.9em; 
+}
+.mGrid .alt { background: #fcfcfc url(grd_alt.png) repeat-x top; }
+.mGrid .pgr { background: #424242 url(grd_pgr.png) repeat-x top; }
+.mGrid .pgr table { margin: 5px 0; }
+.mGrid .pgr td { 
+    border-width: 0; 
+    padding: 0 6px; 
+    border-left: solid 1px #666; 
+    font-weight: bold; 
+    color: #fff; 
+    line-height: 12px; 
+ }   
+.mGrid .pgr a { color: #666; text-decoration: none; }
+.mGrid .pgr a:hover { color: #000; text-decoration: none; }
+
+
+</style>
+
+</head>
+<body>
+    <form id="form1" runat="server" class="register">
+    <center> 
+    <div>
+        <table border="0" cellpadding="0" cellspacing="0" style="width: 1000px">
+            <tr>
+                <td style="width: 1000px" align="left" valign="top">
+                    <img height="100" src="images/Logo.jpg" width="200" alt="TV5 Logo" /></td>
+            </tr>
+            <tr align="right">
+            <td><asp:LoginName ID="LoginName1" runat="server" Font-Bold="True" Visible="false" /><strong>Welcome : </strong><asp:Label ID="Label1" runat="server" Text="Label" Font-Bold="true"></asp:Label></td>
+            </tr>
+            <tr>
+            <td><br /></td>
+            </tr>
+            <tr>
+                <td style="width: 1000px" valign="top">
+                    <ul>
+                        <li><a class="menuitem" href="Homepage.aspx">Home</a></li>
+                        <li><a class="menuitem" href="DailyReport.aspx">Daily Report</a></li>
+                        <li><a class="menuitem" href="DutySchedule.aspx">Duty Schedule</a></li>
+                        <li><a class="menuitem" href="LeaveHistory.aspx">Leave History</a></li>
+                        <li><a class="menuitem" href="Attendance.aspx">Attendance</a></li>
+                        <li style="float:right"><asp:LoginStatus ID="LoginStatus1" runat="server" /></li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+            <td style="width: 1000px">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+            </td>
+            </tr>
+        </table>
+    </div>
+    </center> 
+    </form>
+</body>
+</html>
